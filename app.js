@@ -207,9 +207,6 @@ let factDescriptions = {
 
     return fact;
   },
-  timePeriodFact: (humanData, dinoData) => {
-    return dinoData.species + " existed " + dinoData.timePeriod + " period!";
-  },
 };
 
 // Add tiles to DOM
