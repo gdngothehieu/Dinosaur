@@ -140,6 +140,7 @@ class Dino {
 const generateTilesForEachDino = () => {
   // This function generates an array of Dinos Objects pre-rendered on screen
   let dinoArray = [];
+  // Convert dinoData list into list of Dino Objects
   for (let i = 0; i < dinoData["Dinos"].length; i++) {
     let dinoObject = new Dino(
       dinoData["Dinos"][i].species,
@@ -159,6 +160,7 @@ const generateTilesForEachDino = () => {
 
 // Create Human Object and constructor
 class Human {
+  // Human object info getting from user input
   constructor() {
     this.name = document.getElementById("name").value || "";
     this.height =
@@ -169,7 +171,7 @@ class Human {
   }
 }
 
-// Create Tile Object
+// Create Tile Object that includes species, imagePath, and description fact
 class Tile {
   constructor(species, imagePath, fact) {
     this.species = species;
