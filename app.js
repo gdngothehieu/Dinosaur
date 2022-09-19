@@ -1,3 +1,4 @@
+// dinoData taken from ./dino.json
 const dinoData = {
   Dinos: [
     {
@@ -99,8 +100,9 @@ class Dino {
 
   // Create Dino Compare Method 1
   // NOTE: Weight in JSON file is in lbs, height in inches.
-
+  // This method compares the weight of dinosaur to human info
   compareWeight(humanData, dinoData) {
+    // Generate comparison facts if species is not a bird
     if (dinoData.species == "Pigeon") {
       return dinoData.fact;
     }
@@ -110,6 +112,7 @@ class Dino {
   }
   // Create Dino Compare Method 2
   // NOTE: Weight in JSON file is in lbs, height in inches.
+  // This method compares the height of dinosaur to human info
 
   compareHeight(humanData, dinoData) {
     if (dinoData.species == "Pigeon") {
@@ -121,6 +124,7 @@ class Dino {
   }
   // Create Dino Compare Method 3
   // NOTE: Weight in JSON file is in lbs, height in inches.
+  // This method compares the diet of dinosaur to human info
 
   compareDiet(humanData, dinoData) {
     if (dinoData.species == "Pigeon") {
@@ -134,6 +138,7 @@ class Dino {
 // Generate Tiles for each Dino in Array
 
 const generateTilesForEachDino = () => {
+  // This function generates an array of Dinos Objects pre-rendered on screen
   let dinoArray = [];
   for (let i = 0; i < dinoData["Dinos"].length; i++) {
     let dinoObject = new Dino(
@@ -152,7 +157,7 @@ const generateTilesForEachDino = () => {
   return dinoArray;
 };
 
-// Create Human Object
+// Create Human Object and constructor
 class Human {
   constructor() {
     this.name = document.getElementById("name").value || "";
@@ -209,10 +214,11 @@ let factDescriptions = {
   },
 };
 
-// Add tiles to DOM
+// Add tiles to DOM by iterating the dino list
 
 const addTilesToDom = (tilesData) => {
   let testDivItems = "";
+
   for (data of tilesData) {
     testDivItems +=
       "<div class='grid-item'><h3>" +
@@ -230,6 +236,7 @@ const addTilesToDom = (tilesData) => {
 // On button click, prepare and display infographic
 
 const onClickHandler = () => {
+  // Randomly switch comparison mode
   const human = new Human();
   let dinosList = [];
   const dinoObjects = generateTilesForEachDino();
