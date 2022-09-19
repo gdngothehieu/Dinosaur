@@ -155,12 +155,12 @@ const generateTilesForEachDino = () => {
 // Create Human Object
 class Human {
   constructor() {
-    this.name = document.getElementById("name").value;
+    this.name = document.getElementById("name").value || "";
     this.height =
       parseInt(document.getElementById("feet").value * 12) +
-      parseInt(document.getElementById("inches").value);
-    this.weight = parseInt(document.getElementById("weight").value);
-    this.diet = document.getElementById("diet").value;
+        parseInt(document.getElementById("inches").value) || 0;
+    this.weight = parseInt(document.getElementById("weight").value || 0);
+    this.diet = document.getElementById("diet").value || "";
   }
 }
 
@@ -176,10 +176,26 @@ class Tile {
 // Methods for fact strings
 let factDescriptions = {
   weightFact: (humanData, dinoData) => {
-    return dinoData.species + " weights more than you";
+    return dinoData.weight - humanData.weight > 0
+      ? dinoData.species +
+          " weights more than you by " +
+          (dinoData.weight - humanData.weight) +
+          " pounds"
+      : dinoData.species +
+          " weights less than you by " +
+          (humanData.weight - dinoData.weight) +
+          " pounds";
   },
   heightFact: (humanData, dinoData) => {
-    return dinoData.species + " is higher than you";
+    return dinoData.height - humanData.height > 0
+      ? dinoData.species +
+          " is higher than you by " +
+          (dinoData.height - humanData.height) +
+          " inch"
+      : dinoData.species +
+          " is shorter than you by " +
+          (humanData.height - dinoData.height) +
+          " inch";
   },
   dietFact: (humanData, dinoData) => {
     let fact;
