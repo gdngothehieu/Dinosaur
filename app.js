@@ -180,6 +180,7 @@ class Tile {
 
 // Methods for fact strings
 let factDescriptions = {
+  // Weight fact description comparison is generated here
   weightFact: (humanData, dinoData) => {
     return dinoData.weight - humanData.weight > 0
       ? dinoData.species +
@@ -191,6 +192,8 @@ let factDescriptions = {
           (humanData.weight - dinoData.weight) +
           " pounds";
   },
+  // Height fact description comparison is generated here
+
   heightFact: (humanData, dinoData) => {
     return dinoData.height - humanData.height > 0
       ? dinoData.species +
@@ -202,6 +205,8 @@ let factDescriptions = {
           (humanData.height - dinoData.height) +
           " inch";
   },
+  // Diet fact description comparison is generated here
+
   dietFact: (humanData, dinoData) => {
     let fact;
     if (humanData.diet.toLowerCase() == dinoData.diet) {
@@ -266,7 +271,7 @@ const onClickHandler = () => {
       )
     );
   }
-
+  // Putting Human tile in the center of tiles
   dinosList
     .sort((a, b) => {
       return b - a;
@@ -277,7 +282,7 @@ const onClickHandler = () => {
   addTilesToDom(allTilesData);
 
   const dinoCompareElement = document.getElementById("dino-compare");
-  // Remove form from screen
+  // Remove form from screen by style dom manipulation
 
   if (dinoCompareElement.style.display === "none") {
     dinoCompareElement.style.display = "block";
